@@ -1,0 +1,8 @@
+{
+  "id": "realtime-collab",
+  "title": "Realtime Team Collaboration Board",
+  "description": "Kanban-style task board with realtime updates using WebSockets. Users can create lists and cards, drag-and-drop, and see changes live.",
+  "tags": ["realtime", "websocket", "kanban", "collaboration"],
+  "stack": ["React", "Node", "Express", "MongoDB", "Socket.IO"],
+  "spec": "Features: lists, cards, drag-and-drop, activity log, presence indicator (online users). Socket rooms per board. Include basic auth placeholder and a README."
+}

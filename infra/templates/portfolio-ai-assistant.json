@@ -1,0 +1,8 @@
+{
+  "id": "portfolio-ai-assistant",
+  "title": "Developer Portfolio + AI Assistant",
+  "description": "Personal portfolio site that indexes your projects and README files. Includes an embedded AI assistant that can answer FAQs about your work.",
+  "tags": ["portfolio", "chatbot", "retrieval", "developer-tools"],
+  "stack": ["React", "Node", "Express", "MongoDB", "OpenAI"],
+  "spec": "Features: sections (About, Projects, Contact). Ingest GitHub repo READMEs, store as documents, and enable Q&A with retrieval-augmented responses. Provide a minimal chat UI and a README."
+}

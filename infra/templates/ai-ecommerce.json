@@ -1,0 +1,8 @@
+{
+  "id": "ai-ecommerce",
+  "title": "AI E-Commerce Recommender",
+  "description": "Build a MERN e-commerce starter with product catalog, cart, checkout stub, and AI-powered product recommendations using vector similarity over product descriptions.",
+  "tags": ["ecommerce", "recommendation", "ai", "vector-search"],
+  "stack": ["React", "Node", "Express", "MongoDB", "OpenAI"],
+  "spec": "Features: product CRUD, auth placeholder, catalog grid, product detail, add-to-cart, order mock. AI: create embeddings for product descriptions and recommend similar items. Include a README with setup and seed script."
+}

@@ -177,7 +177,7 @@ export default function Login() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() =>
-              (window.location.href = "http://localhost:4000/auth/github")
+              (window.location.href = `${import.meta.env.VITE_API_URL || "http://localhost:4000"}/auth/github`)
             }
             type="button"
             className="w-full bg-gray-900 text-white py-3 rounded-lg mt-2 flex items-center justify-center gap-3 hover:bg-gray-800 transition"

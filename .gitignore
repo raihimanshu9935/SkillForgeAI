@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Environment Variables (Secrets)
+.env
+.env.local
+.env.*.local
+
+# Build Outputs
+dist/
+build/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Project Specific
+generated_projects/
+api/generated_projects/

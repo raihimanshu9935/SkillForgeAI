@@ -50,16 +50,46 @@ app.get("/health", (req, res) => res.json({ ok: true, ts: Date.now() }));
 // ---------- MongoDB connection + Server start ----------
 const PORT = process.env.PORT || 4000;
 
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => {
+// For Vercel serverless, we need to connect to MongoDB on each request
+let isConnected = false;
+
+async function connectToDatabase() {
+  if (isConnected) {
+    return;
+  }
+
+  try {
+    await mongoose.connect(process.env.MONGODB_URI);
+    isConnected = true;
     console.log("✅ MongoDB connected successfully");
+  } catch (err) {
+    console.error("❌ MongoDB connection error:", err.message);
+    throw err;
+  }
+}
+
+// Middleware to ensure DB connection before handling requests
+app.use(async (req, res, next) => {
+  try {
+    await connectToDatabase();
+    next();
+  } catch (error) {
+    res.status(500).json({ error: "Database connection failed" });
+  }
+});
+
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  connectToDatabase().then(() => {
     app.listen(PORT, () => {
       console.log(`🚀 SkillForge API running on port ${PORT}`);
       console.log(`🔗 Visit: http://localhost:${PORT}/health`);
     });
-  })
-  .catch((err) => console.error("❌ MongoDB connection error:", err.message));
+  });
+}
+
+// Export for Vercel
+export default app;
 
 /**
  * 🧪 Test Steps:
@@ -79,3 +109,4 @@ mongoose
  *   }
  * ]
  */
+
